@@ -1,24 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useState } from "react";
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 
 function App() {
+
+  const [size, setSize] = useState(3); // 3-6-10
+  const [speed, setSpeed] = useState(1); // .5-1-4
+  const [quantity, setQuantity] = useState(100); // 50-100-300
+  const [color, setColor] = useState("#ffffff"); // "#ffffff"-
+  const [shape, setShape] = useState("circle"); // "circle"-"star"
+  const [mode, setMode] = useState('repulse'); // "repulse"-"attract"
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+    console.log(container);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+    <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+          fullScreen: {
+            enable: true,
+            zIndex: -1,
+          },
+          background: {
+            color: '#000000',
+          },
+          particles: {
+            number: {
+              value: quantity,
+            },
+            color: {
+              value: color,
+            },
+            shape: {
+              type: shape,
+            },
+            opacity: {
+              value: 0.5,
+              random: true,
+            },
+            size: {
+              value: size,
+              random: true,
+            },
+            move: {
+              enable: true,
+              speed: speed,
+              direction: 'none',
+              out_mode: 'out',
+              bounce: false,
+            },
+          },
+          interactivity: {
+            events: {
+              onhover: {
+                enable: true,
+                mode: mode,
+              },
+            },
+          },
+        }}
+      />
+  </>
   );
 }
 
