@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
+import Menu from "./Menu";
 
 function App() {
 
@@ -18,6 +19,14 @@ function App() {
   const particlesLoaded = useCallback(async (container) => {
     console.log(container);
   }, []);
+
+  const [menu, setMenu] = useState(true);
+
+  const activeMenu = () => {
+      if (menu === true) {
+          return <Menu/>;
+      }
+  };
 
   return (
   <>
@@ -69,6 +78,9 @@ function App() {
           },
         }}
       />
+    <main className="container">
+    {activeMenu()}
+    </main>
   </>
   );
 }
