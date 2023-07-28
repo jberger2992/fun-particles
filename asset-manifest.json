@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fun-particles/static/css/main.387d6425.css",
+    "main.js": "/fun-particles/static/js/main.23816660.js",
+    "index.html": "/fun-particles/index.html",
+    "main.387d6425.css.map": "/fun-particles/static/css/main.387d6425.css.map",
+    "main.23816660.js.map": "/fun-particles/static/js/main.23816660.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.387d6425.css",
+    "static/js/main.23816660.js"
+  ]
+}
