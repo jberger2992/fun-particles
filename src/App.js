@@ -2,9 +2,11 @@ import React, { useCallback, useState } from "react";
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import Menu from "./Menu";
+import "./App.css";
 
 function App() {
 
+  const [menu, setMenu] = useState(0);
   const [size, setSize] = useState(3); // 3-6-10
   const [speed, setSpeed] = useState(1); // .5-1-4
   const [quantity, setQuantity] = useState(100); // 50-100-300
@@ -20,13 +22,27 @@ function App() {
     console.log(container);
   }, []);
 
-  const [menu, setMenu] = useState(true);
 
   const activeMenu = () => {
-      if (menu === true) {
-          return <Menu/>;
+      if (menu === 1) {
+          return <Menu 
+            size={size} setSize={setSize}
+            speed={speed} setSpeed={setSpeed}
+            quantity={quantity} setQuantity={setQuantity}
+            color={color} setColor={setColor}
+            shape={shape} setShape={setShape}
+            mode={mode} setMode={setMode}
+          />;
       }
   };
+
+  const handleMenu = () => {
+    if (menu === 1) {
+      setMenu(0)
+    } else if (menu === 0) {
+      setMenu(1)
+    }
+  }
 
   return (
   <>
@@ -79,7 +95,8 @@ function App() {
         }}
       />
     <main className="container">
-    {activeMenu()}
+    <button onClick={handleMenu}>Menu</button>
+    {activeMenu()} 
     </main>
   </>
   );

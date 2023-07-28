@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import "./Menu.css";
 
 function Menu(props){
 
-    const [sizeM, setSizeM] = useState(3); // 3-6-10
-    const [speedM, setSpeedM] = useState(1); // .5-1-4
-    const [quantityM, setQuantityM] = useState(100); // 50-100-300
-    const [colorM, setColorM] = useState("#ffffff"); // "#ffffff"-
-    const [shapeM, setShapeM] = useState("circle"); // "circle"-"star"
-    const [modeM, setModeM] = useState('repulse'); // "repulse"-"attract"
-
-    const handleSubmit = (e) => {
-        
-    }
+    // const [sizeM, setSizeM] = useState(3); // 3-6-10
+    // const [speedM, setSpeedM] = useState(1); // .5-1-4
+    // const [quantityM, setQuantityM] = useState(100); // 50-100-300
+    // const [colorM, setColorM] = useState("#ffffff"); // "#ffffff"-
+    // const [shapeM, setShapeM] = useState("circle"); // "circle"-"star"
+    // const [modeM, setModeM] = useState('repulse'); // "repulse"-"attract"
 
     return(
     <>
-        <form onSubmit={handleSubmit}>
-            <label className="form-check-label" for="sizeOptions">Particle Size</label>
+        <form>
+            <label className="form-check-label title-css" for="sizeOptions">Size</label>
             <div classname="form-group">
                 <div className="form-check form-check-inline">
                     <input 
@@ -25,72 +22,155 @@ function Menu(props){
                         name="sizeOptions" 
                         id="sizeSmall"
                         value="3"
-                        onChange={(e) => setSizeM(e.target.value)}
+                        onChange={(e) => props.setSize(3)}
                     />
-                    <label className="form-check-label" for="sizeSmall">Small</label>
+                    <label className="form-check-label label-css" for="sizeSmall">Small</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="sizeOptions" id="sizeMedium" value="6"/>
-                    <label className="form-check-label" for="sizeMedium">Medium</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="sizeOptions" 
+                        id="sizeMedium" 
+                        value="6"
+                        onChange={(e) => props.setSize(6)}
+                    />
+                    <label className="form-check-label label-css" for="sizeMedium">Medium</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="sizeOptions" id="sizeLarge" value="10"/>
-                    <label className="form-check-label" for="sizeLarge">Large</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="sizeOptions" 
+                        id="sizeLarge" 
+                        value="10"
+                        onChange={(e) => props.setSize(10)}
+                    />
+                    <label className="form-check-label label-css" for="sizeLarge">Large</label>
                 </div>
             </div>
-            <label className="form-check-label" for="speedOptions">Particle Speed</label>
+            <label className="form-check-label title-css" for="speedOptions">Speed</label>
             <div classname="form-group">
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="speedOptions" id="speedSlow" value=".5"/>
-                    <label className="form-check-label" for="speedSlow">Slow</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="speedOptions" 
+                        id="speedSlow" 
+                        value=".5"
+                        onChange={(e) => props.setSpeed(.5)}
+                    />
+                    <label className="form-check-label label-css" for="speedSlow">Slow</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="speedOptions" id="speedNormal" value="1"/>
-                    <label className="form-check-label" for="speedNormal">Normal</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="speedOptions" 
+                        id="speedNormal" 
+                        value="1"
+                        onChange={(e) => props.setSpeed(1)}
+                    />
+                    <label className="form-check-label label-css" for="speedNormal">Normal</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="speedOptions" id="speedZoomies" value="4"/>
-                    <label className="form-check-label" for="speedZoomies">Zoomies</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="speedOptions" 
+                        id="speedZoomies" 
+                        value="4"
+                        onChange={(e) => props.setSpeed(4)}
+                        />
+                    <label className="form-check-label label-css" for="speedZoomies">Zoomies</label>
                 </div>
             </div>
-            <label className="form-check-label" for="quanitityOptions">Particle Quanitity</label>
+            <label className="form-check-label title-css" for="quanitityOptions">Quanitity</label>
             <div classname="form-group">
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="quanitityOptions" id="quanitityFew" value="50"/>
-                    <label className="form-check-label" for="quanitityFew">Few</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="quanitityOptions" 
+                        id="quanitityFew" 
+                        value="50"
+                        onChange={(e) => props.setQuantity(50)}
+                    />
+                    <label className="form-check-label label-css" for="quanitityFew">Few</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="quanitityOptions" id="quanitityRegular" value="100"/>
-                    <label className="form-check-label" for="quanitityRegular">Regular</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="quanitityOptions" 
+                        id="quanitityRegular" 
+                        value="100"
+                        onChange={(e) => props.setQuantity(100)}
+                    />
+                    <label className="form-check-label label-css" for="quanitityRegular">Regular</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="quanitityOptions" id="quanitityLots" value="300"/>
-                    <label className="form-check-label" for="quanitityLots">Lots</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="quanitityOptions" 
+                        id="quanitityLots" 
+                        value="300"
+                        onChange={(e) => props.setQuantity(300)}
+                    />
+                    <label className="form-check-label label-css" for="quanitityLots">Lots</label>
                 </div>
             </div>
-            <label className="form-check-label" for="shapeOptions">Particle Shape</label>
+            <label className="form-check-label title-css" for="shapeOptions">Shape</label>
             <div classname="form-group">
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="shapeOptions" id="shapeCircle" value="circle"/>
-                    <label className="form-check-label" for="shapeCircle">Circle</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="shapeOptions" 
+                        id="shapeCircle" 
+                        value="circle"
+                        onChange={(e) => props.setShape("circle")}
+                    />
+                    <label className="form-check-label label-css" for="shapeCircle">Circle</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="shapeOptions" id="shapeStar" value="star"/>
-                    <label className="form-check-label" for="shapeStar">Star</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="shapeOptions" 
+                        id="shapeStar" 
+                        value="star"
+                        onChange={(e) => props.setShape("star")}
+                    />
+                    <label className="form-check-label label-css" for="shapeStar">Star</label>
                 </div>
             </div>
-            <label className="form-check-label" for="cursorOptions">Cursor Effect</label>
+            <label className="form-check-label title-css" for="cursorOptions">Cursor Effect</label>
             <div classname="form-group">
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="cursorOptions" id="cursorRepulse" value="repulse"/>
-                    <label className="form-check-label" for="cursorRepulse">Repulse</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="cursorOptions" 
+                        id="cursorRepulse" 
+                        value="repulse"
+                        onChange={(e) => props.setMode("repulse")}
+                    />
+                    <label className="form-check-label label-css" for="cursorRepulse">Repulse</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="cursorOptions" id="cursorAttract" value="attract"/>
-                    <label className="form-check-label" for="cursorAttract">Attract</label>
+                    <input 
+                        className="form-check-input" 
+                        type="radio" 
+                        name="cursorOptions" 
+                        id="cursorAttract" 
+                        value="attract"
+                        onChange={(e) => props.setMode("attract")}
+                    />
+                    <label className="form-check-label label-css" for="cursorAttract">Attract</label>
                 </div>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
     </>
     )
